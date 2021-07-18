@@ -3,17 +3,28 @@
 #include <fstream>
 using namespace std;
 
-int main(){
+int main(int argc, char *argv[]){
     string a;
     string b;
     string c;
     string d;
     string A;
     string B;
-    cout << "Enter the address of the read file:" << endl;
-    cin>>A;
-    cout << "Enter the address of the recording file:" << endl;
-    cin>>B;
+    if(argc == 3) {
+        B = argv[2];
+        A = argv[1];
+       }
+       else if(argc == 2) {
+           cout<<"Enter file path"<<endl;
+           cin>>B;
+           A = argv[1];
+    }
+    else {
+        cout<<"Enter file path"<<endl;
+        cin>>A;
+        cout<<"Enter file path"<<endl;
+        cin>>B;
+    }
     ifstream F(A);
     cout << "Enter the characters at the beginning of the line:" << endl;
     cin>>a;
@@ -30,3 +41,5 @@ int main(){
     f.close();
     return 0;
 }
+
+
